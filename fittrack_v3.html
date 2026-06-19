@@ -1054,279 +1054,6 @@ input, select, textarea { font-family: inherit; }
 /* ── Botão concluir rotina (dentro de rotina-item) ── */
 .ri-check.done-check { background: #5a8a4a; border-color: #5a8a4a; color: #fff; }
 
-/* ══════════════════════════════════════
-   ─── ONBOARDING ───
-══════════════════════════════════════ */
-.onboarding-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b49a' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  overflow-y: auto;
-}
-.onboarding-overlay.hidden { display: none; }
-.ob-card {
-  background: var(--bg2);
-  border: 1px solid var(--border2);
-  border-radius: 20px;
-  width: 100%;
-  max-width: 480px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.13);
-  overflow: hidden;
-  position: relative;
-}
-.ob-header {
-  background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan2) 100%);
-  padding: 28px 28px 24px;
-  text-align: center;
-  color: #fff;
-}
-.ob-logo {
-  font-size: 26px;
-  font-weight: 800;
-  font-family: 'Lora', serif;
-  letter-spacing: -0.5px;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-.ob-logo i { font-size: 28px; }
-.ob-logo span { font-weight: 400; opacity: .85; }
-.ob-tagline { font-size: 13px; opacity: .85; margin-top: 2px; }
-
-/* progress bar */
-.ob-progress-wrap { padding: 0 28px; margin-top: 20px; margin-bottom: 0; }
-.ob-progress-bar { height: 4px; background: var(--bg4); border-radius: 2px; overflow: hidden; }
-.ob-progress-fill { height: 100%; background: var(--cyan); border-radius: 2px; transition: width .4s ease; }
-.ob-step-label { font-size: 11px; color: var(--text2); margin-top: 7px; text-align: right; }
-
-.ob-body { padding: 24px 28px 28px; }
-.ob-q-title {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 6px;
-  line-height: 1.3;
-}
-.ob-q-sub { font-size: 12px; color: var(--text2); margin-bottom: 20px; }
-
-/* option chips */
-.ob-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-.ob-option {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  background: var(--bg3);
-  border: 1.5px solid var(--border2);
-  border-radius: 12px;
-  padding: 13px 16px;
-  cursor: pointer;
-  transition: border-color .15s, background .15s;
-  text-align: left;
-  font-family: inherit;
-  width: 100%;
-}
-.ob-option:hover { border-color: var(--border2); background: var(--bg4); }
-.ob-option.sel { border-color: var(--cyan); background: var(--cyanA); }
-.ob-option-icon { font-size: 22px; flex-shrink: 0; }
-.ob-option-text { flex: 1; }
-.ob-option-label { font-size: 14px; font-weight: 600; color: var(--text); }
-.ob-option-desc  { font-size: 11px; color: var(--text2); margin-top: 1px; }
-.ob-check {
-  width: 20px; height: 20px;
-  border: 1.5px solid var(--border2);
-  border-radius: 50%;
-  flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--cyan);
-  font-size: 11px;
-  transition: border-color .15s, background .15s;
-}
-.ob-option.sel .ob-check { border-color: var(--cyan); background: var(--cyan); color: #fff; }
-
-/* inputs inside onboarding */
-.ob-input-group { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-.ob-field { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 120px; }
-.ob-field label { font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .6px; }
-.ob-field input, .ob-field select {
-  background: var(--bg3);
-  border: 1.5px solid var(--border2);
-  border-radius: 8px;
-  padding: 11px 14px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-  outline: none;
-  transition: border-color .15s;
-  width: 100%;
-}
-.ob-field input:focus, .ob-field select:focus { border-color: var(--cyan); }
-.ob-field select { appearance: none; -webkit-appearance: none; cursor: pointer; }
-
-/* nav buttons */
-.ob-nav { display: flex; gap: 10px; }
-.ob-btn-back {
-  padding: 13px 20px;
-  border: 1.5px solid var(--border2);
-  border-radius: 10px;
-  background: none;
-  color: var(--text2);
-  font-size: 14px;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: border-color .15s;
-  white-space: nowrap;
-}
-.ob-btn-back:hover { border-color: var(--border2); color: var(--text); }
-.ob-btn-next {
-  flex: 1;
-  padding: 13px 20px;
-  border: none;
-  border-radius: 10px;
-  background: var(--cyan);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 800;
-  font-family: inherit;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: background .15s, transform .1s;
-  box-shadow: 0 3px 10px rgba(181,101,29,0.3);
-}
-.ob-btn-next:hover  { background: var(--cyan2); }
-.ob-btn-next:active { transform: scale(0.98); }
-.ob-btn-next:disabled { background: var(--bg4); color: var(--text3); cursor: not-allowed; box-shadow: none; }
-
-/* finish screen */
-.ob-finish {
-  text-align: center;
-  padding: 8px 0 8px;
-}
-.ob-finish-emoji { font-size: 56px; margin-bottom: 12px; }
-.ob-finish-title { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
-.ob-finish-sub { font-size: 13px; color: var(--text2); margin-bottom: 20px; line-height: 1.6; }
-.ob-summary {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  text-align: left;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.ob-sum-row { display: flex; align-items: center; gap: 10px; }
-.ob-sum-icon { font-size: 18px; flex-shrink: 0; }
-.ob-sum-text { font-size: 13px; color: var(--text2); }
-.ob-sum-text strong { color: var(--text); }
-
-/* ══════════════════════════════════════
-   ─── MOBILE HAMBURGER MENU ───
-══════════════════════════════════════ */
-.hamburger-btn {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px; height: 40px;
-  border: none;
-  background: none;
-  color: var(--text);
-  font-size: 22px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background .15s;
-  flex-shrink: 0;
-}
-.hamburger-btn:hover { background: var(--bg3); }
-
-/* Mobile dropdown menu */
-.mobile-menu-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 190;
-  background: transparent;
-}
-.mobile-menu-overlay.open { display: block; }
-
-.mobile-menu {
-  position: fixed;
-  top: 54px;
-  left: 0; right: 0;
-  z-index: 195;
-  background: var(--bg2);
-  border-bottom: 2px solid var(--border2);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
-  transform: translateY(-110%);
-  transition: transform .28s cubic-bezier(.4,0,.2,1);
-  display: none;
-}
-.mobile-menu.open {
-  transform: translateY(0);
-  display: block;
-}
-.mobile-menu-inner {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0 12px;
-}
-.mobile-nav-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 15px 22px;
-  border: none;
-  background: none;
-  color: var(--text2);
-  font-size: 15px;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background .12s, color .12s;
-  text-align: left;
-  width: 100%;
-  border-left: 3px solid transparent;
-}
-.mobile-nav-item i { font-size: 20px; flex-shrink: 0; }
-.mobile-nav-item:hover { background: var(--bg3); color: var(--text); }
-.mobile-nav-item.active {
-  color: var(--cyan);
-  background: var(--cyanA);
-  border-left-color: var(--cyan);
-  font-weight: 700;
-}
-.mobile-menu-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 6px 20px;
-}
-
-/* Show hamburger on mobile, hide desktop nav-tabs */
-@media (max-width: 640px) {
-  .hamburger-btn { display: flex; }
-  .nav-tabs { display: none !important; }
-  .topnav { padding: 0 14px; gap: 8px; }
-  .logo { margin-right: 0; }
-  .logo span { display: none; }
-  .date-chip { display: none; }
-}
-@media (min-width: 641px) {
-  .hamburger-btn { display: none !important; }
-  .mobile-menu { display: none !important; }
-  .mobile-menu-overlay { display: none !important; }
-}
 </style>
 </head>
 <body>
@@ -1338,10 +1065,6 @@ input, select, textarea { font-family: inherit; }
       <i class="ti ti-bolt-filled"></i>
       FitTrack<span>Pro</span>
     </div>
-    <!-- Hamburger (mobile only) -->
-    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
-      <i class="ti ti-menu-2" id="hamburgerIcon"></i>
-    </button>
     <div class="nav-tabs">
       <button class="nav-tab active" onclick="goto('dash')">
         <i class="ti ti-layout-dashboard"></i><span>Dashboard</span>
@@ -1735,44 +1458,6 @@ input, select, textarea { font-family: inherit; }
   </div><!-- /main -->
 </div><!-- /app -->
 
-<!-- ── MOBILE MENU OVERLAY ── -->
-<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-inner">
-    <button class="mobile-nav-item active" id="mnav-dash" onclick="gotoMobile('dash')">
-      <i class="ti ti-layout-dashboard"></i>Dashboard
-    </button>
-    <button class="mobile-nav-item" id="mnav-foto" onclick="gotoMobile('foto')">
-      <i class="ti ti-camera"></i>Analisar Foto
-    </button>
-    <button class="mobile-nav-item" id="mnav-treino" onclick="gotoMobile('treino')">
-      <i class="ti ti-barbell"></i>Treino
-    </button>
-    <button class="mobile-nav-item" id="mnav-hist" onclick="gotoMobile('hist')">
-      <i class="ti ti-history"></i>Histórico
-    </button>
-    <div class="mobile-menu-divider"></div>
-    <button class="mobile-nav-item" id="mnav-rotina" onclick="gotoMobile('rotina')">
-      <i class="ti ti-bell-ringing"></i>Rotina
-    </button>
-  </div>
-</div>
-
-<!-- ══ ONBOARDING ══ -->
-<div class="onboarding-overlay" id="obOverlay">
-  <div class="ob-card">
-    <div class="ob-header">
-      <div class="ob-logo"><i class="ti ti-bolt-filled"></i>FitTrack<span>Pro</span></div>
-      <div class="ob-tagline">Seu assistente de saúde e fitness com IA</div>
-    </div>
-    <div class="ob-progress-wrap">
-      <div class="ob-progress-bar"><div class="ob-progress-fill" id="obProgressFill" style="width:0%"></div></div>
-      <div class="ob-step-label" id="obStepLabel">Passo 1 de 4</div>
-    </div>
-    <div class="ob-body" id="obBody"></div>
-  </div>
-</div>
-
 <!-- ── STREAK MODAL ── -->
 <div class="streak-overlay" id="streakOverlay" onclick="fecharStreakModal()">
   <div class="streak-modal" onclick="event.stopPropagation()">
@@ -1820,9 +1505,7 @@ function goto(id){
 }
 
 /* ─── STATE ─── */
-const GOAL_KCAL = 2200; // fallback
-function getUserGoal(){ return window.GOAL_KCAL_USER || GOAL_KCAL; }
-function getUserWeight(){ return window.WEIGHT_USER || WEIGHT; }
+const GOAL_KCAL = 2200;
 const WEIGHT    = 75; // kg (usuário padrão)
 const state = { logs:[], macros:{p:0,c:0,g:0}, water:0 };
 
@@ -1856,7 +1539,7 @@ ACTS.forEach((a,i) => {
 function calcBurn(){
   const dur = parseInt(document.getElementById('durSlider').value);
   document.getElementById('durVal').textContent = dur + ' min';
-  const kcal = Math.round(ACTS[selAct].met * getUserWeight() * (dur/60));
+  const kcal = Math.round(ACTS[selAct].met * WEIGHT * (dur/60));
   document.getElementById('burnEst').textContent = kcal.toLocaleString('pt-BR') + ' kcal';
   const mv = document.getElementById('manualKcal') && document.getElementById('manualKcal').value;
   if(!mv) document.getElementById('manualBadge') && (document.getElementById('manualBadge').style.display='none');
@@ -1875,7 +1558,7 @@ function clearManual(){
 
 function logWorkout(){
   const dur  = parseInt(document.getElementById('durSlider').value);
-  const calcKcal = Math.round(ACTS[selAct].met * getUserWeight() * (dur/60));
+  const calcKcal = Math.round(ACTS[selAct].met * WEIGHT * (dur/60));
   const manualEl = document.getElementById('manualKcal');
   const manualVal = manualEl ? manualEl.value : '';
   const kcal = (manualVal && parseInt(manualVal) > 0) ? parseInt(manualVal) : calcKcal;
@@ -1962,7 +1645,7 @@ function updateDash(){
   const totalIn  = state.logs.filter(l=>l.type==='in').reduce((s,l)=>s+l.kcal,0);
   const totalOut = state.logs.filter(l=>l.type==='out').reduce((s,l)=>s+l.kcal,0);
   const bal      = totalIn - totalOut;
-  const pct      = Math.min(Math.round(totalIn/getUserGoal()*100),100);
+  const pct      = Math.min(Math.round(totalIn/GOAL_KCAL*100),100);
 
   document.getElementById('kpi-in').textContent    = totalIn.toLocaleString('pt-BR');
   document.getElementById('kpi-out').textContent   = totalOut.toLocaleString('pt-BR');
@@ -1986,7 +1669,7 @@ function updateDash(){
 
   // donut
   if(donutChart){
-    const rem = Math.max(0, getUserGoal() - totalIn);
+    const rem = Math.max(0, GOAL_KCAL - totalIn);
     donutChart.data.datasets[0].data = [totalIn, totalOut, rem];
     donutChart.update('none');
   }
@@ -2030,7 +1713,7 @@ function initCharts(){
     data:{
       labels:['Ingerido','Queimado','Restante'],
       datasets:[{
-        data:[0,0,getUserGoal()],
+        data:[0,0,GOAL_KCAL],
         backgroundColor:['#b5651d','#5a8a4a','#e4ddd0'],
         borderWidth:0,
         cutout:'78%'
@@ -2273,19 +1956,10 @@ function showToast(msg){
 
 /* ─── INIT ─── */
 window.addEventListener('load', () => {
-  // Check if onboarding done
-  const ob = localStorage.getItem('fittrack_onboarding');
-  if(ob){
-    applyOnboardingData(JSON.parse(ob));
-    document.getElementById('obOverlay').classList.add('hidden');
-    initCharts();
-    updateDash();
-    initRotina();
-    initStreak();
-  } else {
-    initOnboarding();
-    // charts will init after onboarding
-  }
+  initCharts();
+  updateDash();
+  initRotina();
+  initStreak();
 });
 
 /* ══════════════════════════════════════
@@ -2631,297 +2305,6 @@ window.toggleFeita = function(id){
 
 /* Init streak no load */
 function initStreak(){ renderStreakChip(); }
-
-/* ══════════════════════════════════════
-   ─── MOBILE MENU ───
-══════════════════════════════════════ */
-let mobileMenuOpen = false;
-
-function toggleMobileMenu(){
-  mobileMenuOpen ? closeMobileMenu() : openMobileMenu();
-}
-
-function openMobileMenu(){
-  mobileMenuOpen = true;
-  const menu = document.getElementById('mobileMenu');
-  const overlay = document.getElementById('mobileMenuOverlay');
-  const icon = document.getElementById('hamburgerIcon');
-  menu.style.display = 'block';
-  overlay.classList.add('open');
-  // force reflow then animate
-  requestAnimationFrame(() => menu.classList.add('open'));
-  icon.className = 'ti ti-x';
-}
-
-function closeMobileMenu(){
-  mobileMenuOpen = false;
-  const menu = document.getElementById('mobileMenu');
-  const overlay = document.getElementById('mobileMenuOverlay');
-  const icon = document.getElementById('hamburgerIcon');
-  menu.classList.remove('open');
-  overlay.classList.remove('open');
-  icon.className = 'ti ti-menu-2';
-  setTimeout(() => { if(!mobileMenuOpen) menu.style.display = 'none'; }, 280);
-}
-
-function gotoMobile(id){
-  goto(id);
-  closeMobileMenu();
-  // update mobile active states
-  document.querySelectorAll('.mobile-nav-item').forEach(b => b.classList.remove('active'));
-  const btn = document.getElementById('mnav-'+id);
-  if(btn) btn.classList.add('active');
-}
-
-// Sync mobile menu active state with desktop nav
-const _origGoto = goto;
-window.goto = function(id){
-  _origGoto(id);
-  document.querySelectorAll('.mobile-nav-item').forEach(b => b.classList.remove('active'));
-  const btn = document.getElementById('mnav-'+id);
-  if(btn) btn.classList.add('active');
-};
-
-/* ══════════════════════════════════════
-   ─── ONBOARDING ───
-══════════════════════════════════════ */
-const OB_STEPS = [
-  {
-    id: 'objetivo',
-    title: 'Qual é o seu objetivo principal?',
-    sub: 'Isso vai personalizar suas metas calóricas e sugestões.',
-    type: 'options',
-    options: [
-      { icon:'🔥', label:'Perder peso', desc:'Deficit calórico, mais atividade física', value:'perder' },
-      { icon:'💪', label:'Ganhar massa muscular', desc:'Superávit calórico e treino de força', value:'ganhar' },
-      { icon:'⚖️', label:'Manter o peso', desc:'Equilíbrio calórico e saúde geral', value:'manter' },
-      { icon:'❤️', label:'Melhorar a saúde geral', desc:'Bem-estar, energia e qualidade de vida', value:'saude' },
-    ]
-  },
-  {
-    id: 'dados',
-    title: 'Seus dados corporais',
-    sub: 'Usados para calcular o gasto calórico com mais precisão.',
-    type: 'inputs',
-    fields: [
-      { id:'obPeso', label:'Peso (kg)', type:'number', placeholder:'75', min:30, max:300 },
-      { id:'obAltura', label:'Altura (cm)', type:'number', placeholder:'175', min:100, max:250 },
-      { id:'obIdade', label:'Idade', type:'number', placeholder:'28', min:10, max:99 },
-      { id:'obSexo', label:'Sexo', type:'select', options:[{v:'M',l:'Masculino'},{v:'F',l:'Feminino'}] },
-    ]
-  },
-  {
-    id: 'atividade',
-    title: 'Qual é seu nível de atividade?',
-    sub: 'Considera sua rotina fora dos treinos registrados no app.',
-    type: 'options',
-    options: [
-      { icon:'🛋️', label:'Sedentário', desc:'Trabalho de escritório, pouco movimento', value:1.2 },
-      { icon:'🚶', label:'Levemente ativo', desc:'Exercício 1-3x por semana', value:1.375 },
-      { icon:'🏃', label:'Moderadamente ativo', desc:'Exercício 3-5x por semana', value:1.55 },
-      { icon:'⚡', label:'Muito ativo', desc:'Exercício intenso 6-7x por semana', value:1.725 },
-    ]
-  },
-  {
-    id: 'nome',
-    title: 'Como podemos te chamar?',
-    sub: 'Opcional — para personalizar sua experiência.',
-    type: 'inputs',
-    fields: [
-      { id:'obNome', label:'Seu nome', type:'text', placeholder:'Ex: Rafael', max:30 },
-    ]
-  }
-];
-
-let obStep = 0;
-let obAnswers = {};
-
-function initOnboarding(){
-  renderObStep();
-}
-
-function renderObStep(){
-  const step = OB_STEPS[obStep];
-  const pct = Math.round((obStep / OB_STEPS.length) * 100);
-  document.getElementById('obProgressFill').style.width = pct + '%';
-  document.getElementById('obStepLabel').textContent = `Passo ${obStep+1} de ${OB_STEPS.length}`;
-
-  let html = '';
-  html += `<div class="ob-q-title">${step.title}</div>`;
-  html += `<div class="ob-q-sub">${step.sub}</div>`;
-
-  if(step.type === 'options'){
-    html += '<div class="ob-options">';
-    step.options.forEach((o, i) => {
-      const sel = obAnswers[step.id] === o.value ? ' sel' : '';
-      html += `<button class="ob-option${sel}" data-val="${o.value}" onclick="obSelectOption(this,'${step.id}')">
-        <span class="ob-option-icon">${o.icon}</span>
-        <div class="ob-option-text">
-          <div class="ob-option-label">${o.label}</div>
-          <div class="ob-option-desc">${o.desc}</div>
-        </div>
-        <div class="ob-check"><i class="ti ti-check"></i></div>
-      </button>`;
-    });
-    html += '</div>';
-  } else if(step.type === 'inputs'){
-    html += '<div class="ob-input-group">';
-    step.fields.forEach(f => {
-      const saved = obAnswers[f.id] || '';
-      html += `<div class="ob-field" style="${step.fields.length === 1 ? 'min-width:100%' : ''}">
-        <label>${f.label}</label>`;
-      if(f.type === 'select'){
-        html += `<select id="${f.id}">`;
-        f.options.forEach(o => html += `<option value="${o.v}"${saved===o.v?' selected':''}>${o.l}</option>`);
-        html += '</select>';
-      } else {
-        html += `<input id="${f.id}" type="${f.type}" placeholder="${f.placeholder||''}" 
-          ${f.min!==undefined?'min="'+f.min+'"':''} 
-          ${f.max!==undefined?'max="'+f.max+'"':''}
-          ${f.maxlength!==undefined?'maxlength="'+f.maxlength+'"':''}
-          value="${saved}">`;
-      }
-      html += '</div>';
-    });
-    html += '</div>';
-  }
-
-  html += '<div class="ob-nav">';
-  if(obStep > 0){
-    html += `<button class="ob-btn-back" onclick="obBack()"><i class="ti ti-arrow-left"></i> Voltar</button>`;
-  }
-  const isLast = obStep === OB_STEPS.length - 1;
-  html += `<button class="ob-btn-next" id="obNextBtn" onclick="obNext()">
-    ${isLast ? '<i class="ti ti-rocket"></i> Começar!' : 'Continuar <i class="ti ti-arrow-right"></i>'}
-  </button>`;
-  html += '</div>';
-
-  document.getElementById('obBody').innerHTML = html;
-}
-
-function obSelectOption(el, field){
-  document.querySelectorAll('#obBody .ob-option').forEach(b => b.classList.remove('sel'));
-  el.classList.add('sel');
-  obAnswers[field] = el.dataset.val;
-  // Try to parse float if needed (for atividade step)
-  const f = parseFloat(el.dataset.val);
-  if(!isNaN(f)) obAnswers[field] = f;
-  else obAnswers[field] = el.dataset.val;
-}
-
-function obSaveInputs(){
-  const step = OB_STEPS[obStep];
-  if(step.type !== 'inputs') return true;
-  let ok = true;
-  step.fields.forEach(f => {
-    const el = document.getElementById(f.id);
-    if(!el) return;
-    const v = el.value.trim();
-    if(f.type === 'number'){
-      if(!v || isNaN(+v)){ el.style.borderColor='var(--red)'; ok=false; return; }
-      else { el.style.borderColor=''; obAnswers[f.id] = +v; }
-    } else {
-      obAnswers[f.id] = v;
-    }
-  });
-  return ok;
-}
-
-function obNext(){
-  const step = OB_STEPS[obStep];
-  // Validate
-  if(step.type === 'options' && obAnswers[step.id] === undefined){
-    // shake the options
-    document.querySelectorAll('#obBody .ob-option').forEach(b => {
-      b.style.animation = 'none'; void b.offsetWidth;
-      b.style.borderColor = 'var(--red)';
-      setTimeout(()=>b.style.borderColor='',1000);
-    });
-    return;
-  }
-  if(step.type === 'inputs'){
-    if(obStep === 3){ obSaveInputs(); } // nome é opcional
-    else if(!obSaveInputs()) return;
-  }
-
-  if(obStep < OB_STEPS.length - 1){
-    obStep++;
-    renderObStep();
-  } else {
-    // salvar e entrar
-    obSaveInputs();
-    finishOnboarding();
-  }
-}
-
-function obBack(){
-  if(obStep > 0){ obStep--; renderObStep(); }
-}
-
-function calcMeta(dados){
-  // Harris-Benedict revisado
-  const { obPeso:w=75, obAltura:h=175, obIdade:a=28, obSexo:s='M', atividade=1.55, objetivo='manter' } = dados;
-  let bmr;
-  if(s==='M') bmr = 88.362 + (13.397*w) + (4.799*h) - (5.677*a);
-  else         bmr = 447.593 + (9.247*w) + (3.098*h) - (4.330*a);
-  let tdee = Math.round(bmr * atividade);
-  if(objetivo==='perder')  tdee -= 400;
-  if(objetivo==='ganhar')  tdee += 300;
-  return Math.max(1200, tdee);
-}
-
-function applyOnboardingData(dados){
-  const meta = calcMeta(dados);
-  // override globals
-  window.GOAL_KCAL_USER = meta;
-  if(dados.obPeso) window.WEIGHT_USER = dados.obPeso;
-  // update KPI sub text
-  const kpiSub = document.querySelector('#kpi-in + .kpi-sub');
-  const ks = document.getElementById('kpiMetaSub'); if(ks) ks.textContent = `kcal · meta: ${meta.toLocaleString('pt-BR')}`;
-  // update greeting if name given
-  if(dados.obNome){
-    const logo = document.querySelector('.logo');
-    if(logo) logo.title = 'Olá, ' + dados.obNome + '!';
-  }
-}
-
-function finishOnboarding(){
-  localStorage.setItem('fittrack_onboarding', JSON.stringify(obAnswers));
-
-  const nome = obAnswers.obNome || '';
-  const meta = calcMeta(obAnswers);
-
-  // show finish screen
-  const objetivoLabel = {perder:'Perder peso', ganhar:'Ganhar massa', manter:'Manter o peso', saude:'Saúde geral'}[obAnswers.objetivo] || '';
-  const atividadeLabel = {1.2:'Sedentário',1.375:'Levemente ativo',1.55:'Moderadamente ativo',1.725:'Muito ativo'}[obAnswers.atividade] || '';
-
-  document.getElementById('obBody').innerHTML = `
-    <div class="ob-finish">
-      <div class="ob-finish-emoji">🎉</div>
-      <div class="ob-finish-title">Tudo pronto${nome ? ', ' + nome : ''}!</div>
-      <div class="ob-finish-sub">Seu perfil foi configurado com base nas suas respostas. Vamos atingir seus objetivos juntos!</div>
-      <div class="ob-summary">
-        <div class="ob-sum-row"><span class="ob-sum-icon">🎯</span><div class="ob-sum-text"><strong>Meta calórica diária:</strong> ${meta.toLocaleString('pt-BR')} kcal</div></div>
-        <div class="ob-sum-row"><span class="ob-sum-icon">💡</span><div class="ob-sum-text"><strong>Objetivo:</strong> ${objetivoLabel}</div></div>
-        <div class="ob-sum-row"><span class="ob-sum-icon">⚡</span><div class="ob-sum-text"><strong>Nível de atividade:</strong> ${atividadeLabel}</div></div>
-        ${obAnswers.obPeso ? `<div class="ob-sum-row"><span class="ob-sum-icon">⚖️</span><div class="ob-sum-text"><strong>Peso atual:</strong> ${obAnswers.obPeso} kg</div></div>` : ''}
-      </div>
-      <div class="ob-nav">
-        <button class="ob-btn-next" onclick="enterApp()"><i class="ti ti-bolt-filled"></i> Entrar no FitTrack</button>
-      </div>
-    </div>`;
-  document.getElementById('obProgressFill').style.width = '100%';
-  document.getElementById('obStepLabel').textContent = 'Perfil configurado ✓';
-}
-
-function enterApp(){
-  applyOnboardingData(obAnswers);
-  document.getElementById('obOverlay').classList.add('hidden');
-  initCharts();
-  updateDash();
-  initRotina();
-  initStreak();
-}
 </script>
 </body>
 </html>
